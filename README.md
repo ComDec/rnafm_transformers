@@ -1,6 +1,7 @@
 ---
 title: README
 authors:
+    - Xi Wang
     - Zhiyuan Chen
 date: 2023-06-06
 ---
