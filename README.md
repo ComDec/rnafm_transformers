@@ -19,12 +19,12 @@ pip install .
 ## 转换
 
 ```
-python -m RNAFM.convert RNAFM_L16_E1024_DPRNA500M_STEP400K.pt 
+python -m RNAFM.convert RNAFM_pretrained.pt 
 ```
 
-对于预训练的Checkpoint，在本例中使用`RNAFM_L16_E1024_DPRNA500M_STEP400K.pt`。
+对于预训练的Checkpoint，在本例中使用`RNAFM_pretrained.pt`。
 `convert`将会自动识别模型结构参数，生成恰当的配置文件，并转换模型结构。
-最终结果将保存在同名（但没有扩展名）的目录中，本例为`RNAFM_L16_E1024_DPRNA500M_STEP400K`。
+最终结果将保存在同名（但没有扩展名）的目录中，本例为`RNAFM_pretrained`。
 
 ## 使用
 
@@ -33,7 +33,7 @@ python -m RNAFM.convert RNAFM_L16_E1024_DPRNA500M_STEP400K.pt
 在DeepProtein训练时，请在`--sequence.pretrained`指定转换后的文件路径，建议指定绝对路径。
 
 ```
-python -m deepprotein.train --sequence.pretrained /path/to/RNAFM_L16_E1024_DPRNA500M_STEP400K
+python -m deepprotein.train --sequence.pretrained /path/to/RNAFM_pretrained.pt
 ```
 
 ### Transformers
@@ -44,8 +44,8 @@ python -m deepprotein.train --sequence.pretrained /path/to/RNAFM_L16_E1024_DPRNA
 import RNAFM  # import的顺序不重要
 from transformers import AutoTokenizer, AutoModel
 
-tokenizer = AutoTokenizer.from_pretrained("RNAFM_L16_E1024_DPRNA500M_STEP400K")
-model = AutoModel.from_pretrained("RNAFM_L16_E1024_DPRNA500M_STEP400K")
+tokenizer = AutoTokenizer.from_pretrained("RNAFM_pretrained.pt")
+model = AutoModel.from_pretrained("RNAFM_pretrained.pt")
 ```
 
 ## 文件结构
